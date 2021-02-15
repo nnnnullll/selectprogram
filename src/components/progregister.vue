@@ -4,7 +4,7 @@
     <div class="mainbox">
       <v-left></v-left>
       <div class="rightbox">
-        <div class="righttitle">公告通知</div>
+        <div class="righttitle">项目报名</div>
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
@@ -20,7 +20,7 @@ import vTop from '../components/topshow';
 import vLeft from '../components/leftshow'
 const axios=require('axios');
 export default {
-  name: "note",
+  name: "progregister",
   components:{
     vTop,
     vLeft,
