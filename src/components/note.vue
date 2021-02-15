@@ -8,7 +8,12 @@
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
-
+          <div v-for="note in notes" :key="note.key" class="notelistbox">
+            <div>{{note.dv}}</div>
+            <div>{{note.bt}}</div>
+            <div>{{note.nr}}</div>
+            <div>{{note.rq}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -27,13 +32,22 @@ export default {
   },
   data(){
     return{
-      
+      notes:[]
     }
   },
-  mounted:function(){
-    
+  activated:function(){
+    this.getnote();
   },
   methods:{
+    getnote(){
+      axios.post('http://localhost:8010/getnote')
+      .then((response)=>{
+        console.log(response)
+        this.notes=response.data
+      }).catch(function (error) { // 请求失败处理
+        console.log("---查询出错---！"+error);
+      })
+    }
   }
 }
 </script>
@@ -43,6 +57,8 @@ export default {
   width: 1440px;
   height: 768px;
   font-family: SimHei;
+  display: flex;
+  flex-direction: column;
 }
 .mainbox{
   width: 1440px;
@@ -78,5 +94,9 @@ export default {
 .rightmainbox{
   width: 1280px;
   height: 688px;
+}
+.notelistbox{
+  display: flex;
+  flex-direction: row;
 }
 </style>
