@@ -8,8 +8,9 @@
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
+          <div class="notelist_title"></div>
           <div v-for="note in notes" :key="note.key" class="notelistbox">
-            <div>{{note.dv}}</div>
+            <div>{{note.dx}}</div>
             <div>{{note.bt}}</div>
             <div>{{note.nr}}</div>
             <div>{{note.rq}}</div>
@@ -78,22 +79,29 @@ export default {
   font-size: 30px;
   font-family: SimHei;
   font-weight: 400;
-  color:#2C7DC3;;
+  color:#2C7DC3;
   line-height: 1px;
   margin-top: 35px;
-  margin-left: 30px;
+  margin-left: 50px;
 }
 .rightline{
   width: 1186px;
   height: 1px;
   background: #C6CACE;
   margin-top: 5px;
-  margin-left: 30px;
+  margin-left: 50px;
 }
 /* /////////////////////////// */
 .rightmainbox{
-  width: 1280px;
+  width: 1225px;
   height: 688px;
+}
+.notelist_title{
+  width: 1225px;
+  height: 40px;
+  margin-top: 20px;
+  margin-left: 50px;
+  background-color:#2C7DC3;
 }
 .notelistbox{
   display: flex;

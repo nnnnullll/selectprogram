@@ -53,7 +53,7 @@ export default {
   height: 24px;
   font-size: 20px;
   margin-top: 15px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .top_text2{
   width: 575px;
