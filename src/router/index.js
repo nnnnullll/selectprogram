@@ -11,15 +11,9 @@ export default  new Router({
       component:()=>import("../components/note"),
     },
     {
-      path:'/info',//网站访问路径
-      name:'info',//这个路由的名字叫Regiter
-      component:()=>import("../components/info"),
-    },
-    {
-      path:'/progregister',//网站访问路径
-      name:'progregister',//这个路由的名字叫Regiter
-      component:()=>import("../components/progregister"),
+      path:'/login',//网站访问路径
+      name:'login',//这个路由的名字叫Regiter
+      component:()=>import("../components/login"),
     }
-
   ]
 })
