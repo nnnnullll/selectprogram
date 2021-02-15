@@ -8,13 +8,7 @@
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
-          <div class="notelist_title"></div>
-          <div v-for="note in notes" :key="note.key" class="notelistbox">
-            <div>{{note.dx}}</div>
-            <div>{{note.bt}}</div>
-            <div>{{note.nr}}</div>
-            <div>{{note.rq}}</div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -33,22 +27,13 @@ export default {
   },
   data(){
     return{
-      notes:[]
+      
     }
   },
-  activated:function(){
-    this.getnote();
+  mounted:function(){
+    
   },
   methods:{
-    getnote(){
-      axios.post('http://localhost:8010/getnote')
-      .then((response)=>{
-        console.log(response)
-        this.notes=response.data
-      }).catch(function (error) { // 请求失败处理
-        console.log("---查询出错---！"+error);
-      })
-    }
   }
 }
 </script>
@@ -58,8 +43,6 @@ export default {
   width: 1440px;
   height: 768px;
   font-family: SimHei;
-  display: flex;
-  flex-direction: column;
 }
 .mainbox{
   width: 1440px;
@@ -79,32 +62,21 @@ export default {
   font-size: 30px;
   font-family: SimHei;
   font-weight: 400;
-  color:#2C7DC3;
+  color:#2C7DC3;;
   line-height: 1px;
   margin-top: 35px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 .rightline{
   width: 1186px;
   height: 1px;
   background: #C6CACE;
   margin-top: 5px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 /* /////////////////////////// */
 .rightmainbox{
-  width: 1225px;
+  width: 1280px;
   height: 688px;
-}
-.notelist_title{
-  width: 1225px;
-  height: 40px;
-  margin-top: 20px;
-  margin-left: 50px;
-  background-color:#2C7DC3;
-}
-.notelistbox{
-  display: flex;
-  flex-direction: row;
 }
 </style>
