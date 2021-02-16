@@ -95,7 +95,16 @@ export default {
               _this.changeLogin({ token: tmp});
               console.log(tmp)
               localStorage.setItem('token',JSON.stringify(tmp))
-              _this.$router.push('/note');
+              if(this.radio==1){
+                _this.$router.push('/note');
+              }
+              else if(this.radio==2){
+                _this.$router.push('/notemanage');
+              }
+              else if(this.radio==3){
+                _this.$router.push('/notemanage');
+              }
+
               alert('登陆成功');
             }
             else{
