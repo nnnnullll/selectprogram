@@ -5,6 +5,7 @@
         <div class="lefttext2" @click="leftto('info')">个人信息</div>
         <div class="lefttext1" >项目报名</div>
         <div class="lefttext2" @click="leftto('progregister')">项目报名</div>
+        <div class="lefttext2" @click="leftto('ktdetail')">项目查询</div>
         <div class="lefttext1" >项目管理</div>
     </div>
 </template>
