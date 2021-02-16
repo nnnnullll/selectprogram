@@ -24,6 +24,11 @@ export default  new Router({
       path:'/notemanage',//网站访问路径
       name:'notemanage',//这个路由的名字叫Regiter
       component:()=>import("../components/notemanage_c"),
+    },
+    {
+      path:'/ktdetail',//网站访问路径
+      name:'ktdetail',//这个路由的名字叫Regiter
+      component:()=>import("../components/ktdetail_s"),
     }
   ]
 })
