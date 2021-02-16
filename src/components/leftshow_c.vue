@@ -1,8 +1,8 @@
 <template>
     <div class="leftshow">
         <div class="lefttext1">基础功能</div>
-        <div class="lefttext2" @click="leftto('note')">公告发布</div>
-        <div class="lefttext2" @click="leftto('info')">公告管理</div>
+        <div class="lefttext2" @click="leftto('addnote')">公告发布</div>
+        <div class="lefttext2" @click="leftto('notemanage')">公告管理</div>
         <div class="lefttext1" >项目管理</div>
         <div class="lefttext2" @click="leftto('progregister')">项目分配</div>
         <div class="lefttext2" @click="leftto('progtime')">时间管理</div>

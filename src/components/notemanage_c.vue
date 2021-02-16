@@ -39,7 +39,7 @@ import vTop from '../components/topshow';
 import vLeft from '../components/leftshow_c'
 const axios=require('axios');
 export default {
-  name: "note",
+  name: "notemanage",
   components:{
     vTop,
     vLeft,

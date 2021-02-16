@@ -4,7 +4,7 @@
     <div class="mainbox">
       <v-left></v-left>
       <div class="rightbox">
-        <div class="righttitle">发布公告</div>
+        <div class="righttitle">公告发布</div>
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
@@ -38,7 +38,7 @@ import vTop from '../components/topshow';
 import vLeft from '../components/leftshow_c'
 const axios=require('axios');
 export default {
-  name: "note",
+  name: "addnote",
   components:{
     vTop,
     vLeft,
