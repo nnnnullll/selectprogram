@@ -16,9 +16,19 @@ export default  new Router({
       component:()=>import("../components/login"),
     },
     {
-      path:'/info',
-      name:'info',
-      component:()=>import("../components/info"),
+      path:'/addnote',//网站访问路径
+      name:'addnote',//这个路由的名字叫Regiter
+      component:()=>import("../components/addnote_c"),
+    },
+    {
+      path:'/notemanage',//网站访问路径
+      name:'notemanage',//这个路由的名字叫Regiter
+      component:()=>import("../components/notemanage_c"),
+    },
+    {
+      path:'/ktdetail',//网站访问路径
+      name:'ktdetail',//这个路由的名字叫Regiter
+      component:()=>import("../components/ktdetail_s"),
     }
   ]
 })
