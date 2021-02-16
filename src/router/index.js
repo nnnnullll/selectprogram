@@ -40,6 +40,11 @@ export default  new Router({
       path:'/info',//网站访问路径
       name:'info',
       component:()=>import("../components/info"),
+    },
+    {
+      path:'/teacherinfo',//网站访问路径
+      name:'teacherinfo',
+      component:()=>import("../components/teacherinfo"),
     }
   ]
 })
