@@ -4,7 +4,7 @@
     <div class="mainbox">
       <v-left></v-left>
       <div class="rightbox">
-        <div class="righttitle">公告通知</div>
+        <div class="righttitle">公告管理</div>
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
@@ -15,6 +15,7 @@
             <div class="notelist_lan1">发布时间</div>
             <div class="notelist_lan2">公告对象</div>
             <div class="notelist_lan3">公告内容</div>
+            <div class="notelist_lan4">删除</div>
           </div>
           <div v-for="note in notes" :key="note.key" class="notelistbox">
             <div class="notelistrq">{{note.rq}}</div>
@@ -22,6 +23,9 @@
             <div class="notelistnr">
               <div class="notelistnr_bt">{{note.bt}}</div>
               <div class="notelistnr_nr">{{note.nr}}</div>
+            </div>
+            <div class="notelistsc">
+              <el-button @click="condeletenote(note.ggh)">删除</el-button>
             </div>
           </div>
         </div>
@@ -32,10 +36,10 @@
 
 <script>
 import vTop from '../components/topshow';
-import vLeft from '../components/leftshow_s'
+import vLeft from '../components/leftshow_c'
 const axios=require('axios');
 export default {
-  name: "note",
+  name: "notemanage",
   components:{
     vTop,
     vLeft,
@@ -57,6 +61,33 @@ export default {
       }).catch(function (error) { // 请求失败处理
         console.log("---查询出错---！"+error);
       })
+    },
+    deletenote(e){
+      axios.post('http://localhost:8010/deletenote?ggh='+e)
+      .then((response)=>{
+        // console.log(response)
+        this.getnote()
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        });
+      }).catch(function (error) { // 请求失败处理
+        console.log("---查询出错---！"+error);
+      })
+    },
+    condeletenote(e){
+      this.$confirm('此操作将永久删除该公告, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.deletenote(e)
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });          
+        });
     }
   }
 }
@@ -146,11 +177,18 @@ export default {
   text-align: center;
 }
 .notelist_lan3{
-  width: 1064px;
+  width: 964px;
   height: 40px;
   line-height: 40px;
   text-align: center;
   border-left: #C6CACE solid 1px;
+  border-right:#C6CACE solid 1px;
+}
+.notelist_lan4{
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
   border-right:#C6CACE solid 1px;
 }
 .notelistbox{
@@ -179,7 +217,7 @@ export default {
   vertical-align: middle;
 }
 .notelistnr{
-  width: 1064px;
+  width: 964px;
   min-height: 40px;
   text-align:left;
   vertical-align: middle;
@@ -194,5 +232,13 @@ export default {
 }
 .notelistnr_nr{
   line-height: 30px;
+}
+.notelistsc{
+  width: 100px;
+  min-height: 40px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+   border-right:#C6CACE solid 1px;
 }
 </style>
