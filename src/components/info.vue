@@ -398,7 +398,6 @@ export default {
   font-weight: normal;
   color: #858686;
   line-height: 1px;
-
 }
 .text1{
   width: 75px;
@@ -418,6 +417,7 @@ export default {
   opacity: 0.56;
   border-radius: 10px;
   color: #000000;
+  font-size:20px;
 }
 .text2{
   width: 75px;
@@ -436,6 +436,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text3{
   width: 75px;
@@ -454,6 +455,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:14px;
 
 }
 .text4{
@@ -473,6 +475,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text5{
   width: 75px;
@@ -491,6 +494,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text6{
   width: 75px;
@@ -509,6 +513,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text7{
   width: 125px;
@@ -527,6 +532,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text8{
   width: 75px;
@@ -545,6 +551,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text9{
   width: 100px;
@@ -563,6 +570,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 .text10{
   width: 125px;
@@ -581,6 +589,7 @@ export default {
   /*border: 3px solid #000000;*/
   opacity: 0.56;
   border-radius: 10px;
+  font-size:20px;
 }
 /*//////*/
 .notebox{
