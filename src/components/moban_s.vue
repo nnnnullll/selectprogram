@@ -17,7 +17,7 @@
 
 <script>
 import vTop from '../components/topshow';
-import vLeft from '../components/leftshow'
+import vLeft from '../components/leftshow_s'
 const axios=require('axios');
 export default {
   name: "note",
