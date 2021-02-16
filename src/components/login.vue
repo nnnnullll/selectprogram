@@ -93,8 +93,18 @@ export default {
               var tmp = 'Bearer ' + data.token;
               // 将用户token保存到vuex中
               _this.changeLogin({ token: tmp});
-              //localStorage.setItem('token',JSON.stringify(tmp))
-              _this.$router.push('/home');
+              console.log(tmp)
+              localStorage.setItem('token',JSON.stringify(tmp))
+              if(this.radio==1){
+                _this.$router.push('/note');
+              }
+              else if(this.radio==2){
+                _this.$router.push('/note_t');
+              }
+              else if(this.radio==3){
+                _this.$router.push('/notemanage');
+              }
+
               alert('登陆成功');
             }
             else{
