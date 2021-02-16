@@ -14,6 +14,11 @@ export default  new Router({
       path:'/login',//网站访问路径
       name:'login',//这个路由的名字叫Regiter
       component:()=>import("../components/login"),
+    },
+    {
+      path:'/info',
+      name:'info',
+      component:()=>import("../components/info"),
     }
   ]
 })
