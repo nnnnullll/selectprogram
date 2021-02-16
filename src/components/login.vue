@@ -99,7 +99,7 @@ export default {
                 _this.$router.push('/note');
               }
               else if(this.radio==2){
-                _this.$router.push('/notemanage');
+                _this.$router.push('/note_t');
               }
               else if(this.radio==3){
                 _this.$router.push('/notemanage');
