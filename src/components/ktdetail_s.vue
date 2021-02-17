@@ -24,8 +24,8 @@
           <div  class="ktrowbox">
             <div class="ktrow_left">课题名称</div>
             <div class="ktrow_right">{{kt.ktm}}</div>
-            <div class="ktrow_left">指导老师</div>
-            <div class="ktrow_right">{{kt.gh}}</div>
+            <div class="ktrow_left" @click="gototeacher">指导老师</div>
+            <div class="ktrow_right" @click="gototeacher">{{kt.gh}}</div>
           </div>
           <div  class="ktrowbox">
             <div class="ktrow_left">课题类别</div>
@@ -70,6 +70,11 @@ export default {
       this.getkt(this.$route.params.kth);
   },
   methods:{
+    gototeacher(){
+      console.log(this.kt.gh)
+      this.$router.push({name:"teacher_detail",params:{gh:this.kt.gh}})
+      // this.$router.push('/teacher_detail?gh='+this.kt.gh)
+    },
     search(){
       this.getkt(this.input)
     },

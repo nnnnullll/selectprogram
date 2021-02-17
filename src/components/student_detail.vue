@@ -4,7 +4,7 @@
     <div class="mainbox">
       <v-left></v-left>
       <div class="rightbox">
-        <div class="righttitle">个人信息维护</div>
+        <div class="righttitle">申请学生信息</div>
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
@@ -14,22 +14,15 @@
           <div class="studentform" style="display: flex;flex-direction: column;margin-top: 20px">
             <div class="studentnum" style="display: flex;flex-direction: row;margin-left: 394px">
               <div class="text1">学号：</div>
-              <input :readonly="flag0?false:'readonly'" class="input1" v-model="student.num" :placeholder="student.num"></input>
-              <div class="text1" style="margin-left: 5px" @click="changeFlag0">{{msg0}}</div>
+              <input disabled="disabled" class="input1" v-model="student.num" :placeholder="student.num"></input>
             </div>
             <div class="studentname"  style="display: flex;flex-direction: row;margin-left: 394px;margin-top: 6px;">
               <div  class="text2">姓名：</div>
-              <input :readonly="flag1?false:'readonly'" class="input2" v-model="student.name" :placeholder="student.name"></input>
-              <div class="text2" style="margin-left: 5px" @click="changeFlag1">{{msg1}}</div>
-            </div>
-            <div class="studentpsw"  style="display: flex;flex-direction: row;margin-left: 394px;margin-top: 6px;">
-              <div  class="text2">密码：</div>
-              <input :readonly="flag2?false:'readonly'" class="input2" v-model="student.password" :placeholder="student.password"></input>
-              <div class="text2" style="margin-left: 5px" @click="changeFlag2">{{msg2}}</div>
+              <input disabled="disabled" class="input2" v-model="student.name" :placeholder="student.name"></input>
             </div>
             <div class="studentac" style="display: flex;flex-direction: row;margin-top: 6px;margin-left: 394px">
-              <div class="text3">学院：</div>
-              <select v-model="this.accindex" class="select1" id="academyselect" name="academyselect" @change="selectac($event)">
+              <div class="text3" >学院：</div>
+              <select disabled="disabled" style="color: black" v-model="this.accindex" class="select1" id="academyselect" name="academyselect" @change="selectac($event)">
                 <option value =0>请选择学院</option>
                 <option value =1>计算机工程与科学学院</option>
                 <option value =2>理学院</option>
@@ -67,17 +60,19 @@
             </div>
             <div class="studentmajor" style="display: flex;flex-direction: row;margin-left: 394px;margin-top: 6px;">
               <div class="text4" >专业：</div>
-              <input :readonly="flag4?false:'readonly'" class="input4" v-model="student.major" :placeholder="student.major"></input>
-              <div class="text4" style="margin-left: 5px"@click="changeFlag4">{{msg4}}</div>
+              <input disabled="disabled" class="input4" v-model="student.major" :placeholder="student.major"></input>
             </div>
             <div class="studentgrade" style="display: flex;flex-direction: row;margin-left: 394px;margin-top: 6px;">
               <div  class="text5">年级：</div>
-              <input :readonly="flag5?false:'readonly'" class="input5" v-model="student.grade" :placeholder="student.grade"></input>
-              <div class="text5" style="margin-left: 5px" @click="changeFlag5">{{msg5}}</div>
+              <input disabled="disabled" class="input5" v-model="student.grade" :placeholder="student.grade"></input>
+            </div>
+            <div class="studentmajor" style="display: flex;flex-direction: row;margin-left: 394px;margin-top: 6px;">
+              <div class="text4" >均绩：</div>
+              <input disabled="disabled" class="input4" v-model="student.score" :placeholder="student.score"></input>
             </div>
             <div class="studentgender" style="display: flex;flex-direction: row;margin-top: 6px;margin-left: 394px">
               <div class="text6">性别：</div>
-              <select class="select2" v-model="this.genderindex" id="genderselect" name="genderselect" @change="selectgender($event)">
+              <select disabled="disabled" style="color: black" class="select2" v-model="this.genderindex" id="genderselect" name="genderselect" @change="selectgender($event)">
                 <option value =0>请选择性别</option>
                 <option value =1>男</option>
                 <option value =2>女</option>
@@ -85,25 +80,20 @@
             </div>
             <div class="studentemail" style="display: flex;flex-direction: row;margin-top: 6px;margin-left: 340px">
               <div class="text7" style="margin-left: 6px">电子邮箱：</div>
-              <input :readonly="flag7?false:'readonly'" class="input7" v-model="student.email" :placeholder="student.email"></input>
-              <div class="text7" style="margin-left: 5px" @click="changeFlag7">{{msg7}}</div>
+              <input disabled="disabled" class="input7" v-model="student.email" :placeholder="student.email"></input>
             </div>
             <div class="studentqq" style="display: flex;flex-direction: row;margin-top: 6px;margin-left: 390px">
               <div class="text8" style="margin-left: 6px;">QQ：</div>
-              <input :readonly="flag8?false:'readonly'" class="input8" v-model="student.qq" :placeholder="student.qq"></input>
-              <div class="text8" style="margin-left: 5px" @click="changeFlag8">{{msg8}}</div>
+              <input disabled="disabled" class="input8" v-model="student.qq" :placeholder="student.qq"></input>
             </div>
             <div class="studentphone" style="display: flex;flex-direction: row;margin-top: 6px;margin-left: 365px">
               <div class="text9" style="margin-left: 6px">手机号：</div>
-              <input :readonly="flag9?false:'readonly'" class="input9" v-model="student.phone" :placeholder="student.phone"></input>
-              <div class="text9" style="margin-left: 5px" @click="changeFlag9">{{msg9}}</div>
+              <input disabled="disabled" class="input9" v-model="student.phone" :placeholder="student.phone"></input>
             </div>
             <div class="studentinfo" style="display: flex;flex-direction: row;margin-top: 6px;margin-left: 340px">
               <div class="text10" style="margin-left: 6px">个人简介：</div>
-              <textarea style="min-height: 80px" :readonly="flag10?false:'readonly'" class="input10" v-model="student.introduction" :placeholder="student.introduction"></textarea>
-              <div class="text10" style="margin-left: 5px" @click="changeFlag10">{{msg10}}</div>
+              <textarea style="min-height: 80px;width: 406px" disabled="disabled" class="input10" v-model="student.introduction" :placeholder="student.introduction"></textarea>
             </div>
-            <div class="confirmbtn" @click="renew">提交</div>
           </div>
         </div>
       </div>
@@ -116,7 +106,7 @@ import vTop from '../components/topshow';
 import vLeft from '../components/leftshow_s'
 const axios=require('axios');
 export default {
-  name: "info",
+  name: "studeng_detail",
   components:{
     vTop,
     vLeft,
@@ -125,29 +115,8 @@ export default {
     return{
       genderindex:-1,
       accindex:-1,
-      msg0:"编辑",
-      msg1:"编辑",
-      msg2:"编辑",
-      msg3:"编辑",
-      msg4:"编辑",
-      msg5:"编辑",
-      msg6:"编辑",
-      msg7:"编辑",
-      msg8:"编辑",
-      msg9:"编辑",
-      msg10:"编辑",
-      flag0:false,
-      flag1:false,
-      flag2:false,
-      flag3:false,
-      flag4:false,
-      flag5:false,
-      flag6:false,
-      flag7:false,
-      flag8:false,
-      flag9:false,
-      flag10:false,
       student:{
+        score:0,
         num:'18122018',
         name:'zy',
         password:'',
@@ -163,38 +132,20 @@ export default {
     }
   },
   mounted:function(){
-    this.getStuInfo();
+
+    // let e=this.$route.params.xh
+    // this.getStuInfo(e)
+    this.getStuInfo(2);
   },
   methods:{
-    renew(){
-      axios.post("/user/renewstu",{
-        xh:this.student.num,
-        xm:this.student.name,
-        mm:this.student.password,
-        yxh:this.accindex,
-        zy:this.major,
-        nj:this.student.grade,
-        xb:this.student.gender,
-        yx:this.student.email,
-        qq:this.student.qq,
-        sjh:this.student.phone,
-        zwjs:this.student.introduction,
-      })
-          .then(res=>{
-            console.log(res)
-            alert("修改成功")
-          })
-          .catch(err=>{
-            console.log(err)
-          })
-    },
-    getStuInfo(){
+    getStuInfo(e){
       axios.post("/user/getStuById",{
-        xh:localStorage.getItem('xh'),
+        xh:e
       })
           .then(res=>{
             console.log(res.data.res);
             let tmp=res.data.res;
+            this.student.score=tmp.jj;
             this.student.num=tmp.xh;
             this.student.name=tmp.xm;
             this.student.password=tmp.mm;
@@ -218,146 +169,7 @@ export default {
           .catch(err=>{
             console.log(err)
           })
-    },
-    selectac(e){
-      if(e.target.selectedIndex==0){
-        return
-      }
-      else{
-        var  Select=document.getElementById("academyselect");
-        var index=Select.selectedIndex;
-        console.log(index)
-        this.accindex=index;
-        this.student.academy=Select.options[index].text
-        console.log(this.student.academy);
-      }
-    },
-    selectgender(e){
-      if(e.target.selectedIndex==0){
-        return
-      }
-      else{
-        var  Select=document.getElementById("genderselect");
-        var index=Select.selectedIndex;
-        this.genderindex=index;
-        this.student.gender=Select.options[index].text
-        console.log(this.student.gender);
-      }
-    },
-    changeFlag0(){
-      if(this.flag0==false){
-        this.flag0=true;
-        this.msg0="保存"
-      }
-      else{
-        this.flag0=false;
-        this.msg0="编辑"
-      }
-
-    },
-    changeFlag1(){
-      if(this.flag1==false){
-        this.flag1=true;
-        this.msg1="保存"
-      }
-      else{
-        this.flag1=false;
-        this.msg1="编辑"
-      }
-
-    },
-    changeFlag2(){
-      if(this.flag2==false){
-        this.flag2=true;
-        this.msg2="保存"
-      }
-      else{
-        this.flag2=false;
-        this.msg2="编辑"
-      }
-    },
-    changeFlag3(){
-      if(this.flag3==false){
-        this.flag3=true;
-        this.msg3="保存"
-      }
-      else{
-        this.flag3=false;
-        this.msg3="编辑"
-      }
-    },
-    changeFlag4(){
-      if(this.flag4==false){
-        this.flag4=true;
-        this.msg4="保存"
-      }
-      else{
-        this.flag4=false;
-        this.msg4="编辑"
-      }
-
-    },
-    changeFlag5(){
-      if(this.flag5==false){
-        this.flag5=true;
-        this.msg5="保存"
-      }
-      else{
-        this.flag5=false;
-        this.msg5="编辑"
-      }
-    },
-    changeFlag6(){
-      if(this.flag6==false){
-        this.flag6=true;
-        this.msg6="保存"
-      }
-      else{
-        this.flag6=false;
-        this.msg6="编辑"
-      }
-    },
-    changeFlag7(){
-      if(this.flag7==false){
-        this.flag7=true;
-        this.msg7="保存"
-      }
-      else{
-        this.flag7=false;
-        this.msg7="编辑"
-      }
-
-    },
-    changeFlag8(){
-      if(this.flag8==false){
-        this.flag8=true;
-        this.msg8="保存"
-      }
-      else{
-        this.flag8=false;
-        this.msg8="编辑"
-      }
-    },
-    changeFlag9(){
-      if(this.flag9==false){
-        this.flag9=true;
-        this.msg9="保存"
-      }
-      else{
-        this.flag9=false;
-        this.msg9="编辑"
-      }
-    },
-    changeFlag10(){
-      if(this.flag10==false){
-        this.flag10=true;
-        this.msg10="保存"
-      }
-      else{
-        this.flag10=false;
-        this.msg10="编辑"
-      }
-    },
+    }
   }
 }
 </script>
@@ -390,14 +202,11 @@ export default {
   margin-left: 30px;
   margin-top: 12px;
 }
-.text{
-  width: 50px;
-  height: 24px;
-  font-size: 25px;
-  font-family: Adobe Heiti Std;
-  font-weight: normal;
-  color: #858686;
-  line-height: 1px;
+input{
+  color: black;
+}
+textarea{
+  color: black;
 }
 .text1{
   width: 75px;
