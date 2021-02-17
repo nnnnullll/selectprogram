@@ -13,17 +13,21 @@ export default {
   name: "v-top",
   data(){
     return{
-      top_username:"用户名",
+      top_username:"",
       top_date:""
     }
   },
   mounted:function(){
     this.getyear();
+    this.setyhm();
   },
   methods:{
     getyear(){
       var d=new Date()
       this.top_date=d.getFullYear()
+    },
+    setyhm(){
+      this.top_username=JSON.parse(localStorage.getItem('xm'))
     },
     logout(){
       
