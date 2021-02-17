@@ -118,7 +118,7 @@ export default {
         else
           this.kt.sfxkt=1
         // axios.post('http://localhost:8010/addtitle?ktm='+this.kt.ktm+'&gh='+localStorage.getItem('gh')+'&yxh='+localStorage.getItem('yxh')+'&ktjs='+this.kt.ktjs+'&ktlb='+this.kt.ktlb+'&ktxz='+this.kt.ktxz+'&ktly='+this.kt.ktly+'&xbrs='+this.kt.xbrs+'&sfxkt='+this.kt.sfxkt+'&fbsj='+this.current())
-        axios.post('http://localhost:8010/addtitle?ktm='+this.kt.ktm+'&gh='+localStorage.getItem('gh')+'&yxh='+localStorage.getItem('yxh')+'&ktjs='+this.kt.ktjs+'&ktlb=ktlb&ktxz=ktxz&ktly=ktly&xbrs=1&sfxkt='+this.kt.sfxkt+'&fbsj='+this.current())
+        axios.post('http://localhost:8010/addtitle?ktm='+this.kt.ktm+'&gh='+localStorage.getItem('gh')+'&yxh='+localStorage.getItem('yxh')+'&ktjs='+this.kt.ktjs+'&ktlb='+this.kt.ktlb+'&ktxz='+this.kt.ktxz+'&ktly='+this.kt.ktly+'&xbrs='+this.kt.xbrs+'&sfxkt='+this.kt.sfxkt+'&fbsj='+this.current())
         .then((response)=>{
           // console.log(response)
           alert('发布成功!');

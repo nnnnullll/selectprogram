@@ -15,7 +15,7 @@
           <div class="title">毕业设计管理系统</div>
         </el-form-item>
         <el-form-item  >
-          <el-input class="itemlabel1" placeholder="账户"   type="text" v-model="user.input"
+          <el-input class="itemlabel1" placeholder="用户名"   type="text" v-model="user.input"
                     clearable>
           </el-input>
         </el-form-item>
@@ -70,6 +70,8 @@ export default {
     },
     ...mapMutations(['changeLogin']),
     submitForm(){
+      console.log(this.user)
+      console.log(this.radio)
           let _this = this;
           axios.post('/user/login',{
             username:_this.user.input,
