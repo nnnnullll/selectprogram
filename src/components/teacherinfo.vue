@@ -457,7 +457,6 @@ input{
   width: 217px;
   height: 41px;
   background: #2C7DC3;
-  opacity: 0.59;
   border-radius: 10px;
   text-align:center;
   font-size: 24px;
@@ -466,12 +465,12 @@ input{
   color: #FFFFFF;
   margin-left: 550px;
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 .rightbox_title{
-  width: 1186px;
-  height: 39px;
+  width: 1124px;
+  height: 40px;
   background: #2C7DC3;
-  opacity: 0.5;
   text-align: center;
   font-size: 24px;
   font-family: Adobe Heiti Std;
@@ -756,7 +755,8 @@ input{
 }
 /* /////////////////////////// */
 .rightmainbox{
-  width: 1280px;
+  width: 1225px;
+  height: 688px;
   overflow: auto;
 }
 </style>
