@@ -80,11 +80,11 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('发布成功!');
           // console.log(this.noteForm)
           axios.post('http://localhost:8010/addnote?bt='+this.noteForm.bt+'&nr='+this.noteForm.nr+'&dx='+this.noteForm.dx+'&rq='+this.current())
           .then((response)=>{
             // console.log(response)
+            alert('发布成功!');
             this.$refs[formName].resetFields();
           }).catch(function (error) { // 请求失败处理
             console.log("---查询出错---！"+error);

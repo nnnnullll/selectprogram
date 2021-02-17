@@ -61,8 +61,8 @@ export default {
   },
   data(){
     return{
-      kt:[],
-      input:[]
+      kt:{},
+      input:""
     }
   },
   activated:function(){

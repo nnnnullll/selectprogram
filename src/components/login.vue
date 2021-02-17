@@ -85,10 +85,12 @@ export default {
               if(this.radio==1){
                 localStorage.setItem('xh', JSON.stringify(data.xh));
                 localStorage.setItem('xm', JSON.stringify(data.xm));
+                localStorage.setItem('yxh', JSON.stringify(data.yxh));
               }
               else{
                 localStorage.setItem('gh', JSON.stringify(data.gh));
                 localStorage.setItem('xm', JSON.stringify(data.xm));
+                localStorage.setItem('yxh', JSON.stringify(data.yxh));
               }
               var tmp = 'Bearer ' + data.token;
               // 将用户token保存到vuex中
@@ -99,7 +101,7 @@ export default {
                 _this.$router.push('/note');
               }
               else if(this.radio==2){
-                _this.$router.push('/note_t');
+                _this.$router.push('/notet');
               }
               else if(this.radio==3){
                 _this.$router.push('/notemanage');
