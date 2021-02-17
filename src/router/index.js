@@ -59,6 +59,17 @@ export default  new Router({
       path:'/teacherinfo',
       name:'teacherinfo',
       component:()=>import("../components/teacherinfo"),
-    }
+    },
+    {
+      path:'/deletekt',
+      name:'deletekt',
+      component:()=>import("../components/managekt_t"),
+    },
+    {
+      path:'/resetkt',
+      name:'resetkt',
+      component:()=>import("../components/resetkt_t"),
+    },
+
   ]
 })

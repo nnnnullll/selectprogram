@@ -1,12 +1,14 @@
 <template>
     <div class="leftshow">
         <div class="lefttext1">基础功能</div>
-        <div class="lefttext2" @click="leftto('note')">公告通知</div>
-        <div class="lefttext2" @click="leftto('info')">个人信息</div>
+        <div class="lefttext2" @click="leftto('notet')">公告通知</div>
+        <div class="lefttext2" @click="leftto('teacherinfo')">个人信息</div>
         <div class="lefttext1" >课题发布</div>
         <div class="lefttext2" @click="leftto('addkt')">课题发布</div>
+         <div class="lefttext2" @click="leftto('deletekt')">课题删除</div>
+         <div class="lefttext2" @click="leftto('resetkt')">课题修改</div>
         <div class="lefttext1" >课题管理</div>
-        <div class="lefttext2" @click="leftto('progregister')">名单管理</div>
+        <div class="lefttext2" @click="leftto('resetkt')">名单管理</div>
     </div>
 </template>
 

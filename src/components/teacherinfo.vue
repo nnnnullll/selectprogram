@@ -133,7 +133,7 @@
 
 <script>
 import vTop from '../components/topshow';
-import vLeft from '../components/leftshow_s'
+import vLeft from '../components/leftshow_t'
 const axios=require('axios');
 export default {
   name: "teacherinfo",

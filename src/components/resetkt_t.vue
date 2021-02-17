@@ -4,10 +4,14 @@
     <div class="mainbox">
       <v-left></v-left>
       <div class="rightbox">
-        <div class="righttitle">课题发布</div>
+        <div class="righttitle">课题修改</div>
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
+          <div class="searchkthbox">
+            <el-button @click="search()" class="buttonkth">查询</el-button>
+            <el-input class="inputkth" type="number" v-model="input" placeholder="请输入修改课题号"></el-input>
+          </div>
           <div class="kt_title">
             <div class="kt_title_text">课题信息</div>
           </div>
@@ -57,7 +61,7 @@
             </div>
           </div>
           <div class="buttons">
-            <el-button class="crebutton"  @click="concreatkt">创建课题</el-button>
+            <el-button class="crebutton"  @click="conupkt">提交修改</el-button>
             <el-button class="redfinebutton"   @click="reset()">重置</el-button>
           </div>
         </div>
@@ -78,18 +82,13 @@ export default {
   },
   data(){
     return{
-      kt:{
-        xbrs:0,
-        ktm:'',
-        ktjs:'',
-        ktlb:'',
-        ktxz:'',
-        ktly:'',
-        sfxkt:0,
-      }, 
+      kt:{},
+      input:0,
     }
   },
   activated:function(){
+    if(this.$route.params.kth)
+      this.getkt(this.$route.params.kth);
   },
   methods:{
     current() {
@@ -100,6 +99,32 @@ export default {
 			str += d.getDate() + ' ';
 			return str;
 		},
+    search(){
+      this.getkt(this.input)
+    },
+    getkt(e){
+      axios.post('http://localhost:8010/gettitlebykth?kth='+e)
+      // 这里到时候缓存router跳转kth的值
+      .then((response)=>{
+        console.log(response)
+        this.kt=response.data
+        if(response.data.sfxkt==1)
+          this.kt.sfxkt="否"
+        else
+          this.kt.sfxkt="是"
+        axios.post('http://localhost:8010/getteacherbygh?gh='+response.data.gh)
+        // 这里到时候缓存router跳转kth的值
+        .then((res)=>{
+          // console.log(response)
+          this.kt.gh=res.data.xm
+          this.input=""
+        }).catch(function (error) { // 请求失败处理
+          console.log("---查询出错---！"+error);
+        })
+      }).catch(function (error) { // 请求失败处理
+        console.log("---查询出错---！"+error);
+      })
+    },
     reset() {
       this.kt.xbrs='';
       this.kt.ktm='';
@@ -109,21 +134,21 @@ export default {
       this.kt.ktly='';
       this.kt.sfxkt='';
     },
-    concreatkt(e){
-      this.$confirm('此操作将发布该课题, 是否继续?', '提示', {
+    conupkt(e){
+      this.$confirm('此操作将修改该课题, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.creatkt(e)
+          this.upkt(e)
         }).catch(() => {
           this.$message({
             type: 'info',
-            message: '已取消删除'
+            message: '已取消修改'
           });          
         });
     },
-    creatkt(){
+    upkt(){
       if( this.kt.xbrs==''||this.kt.ktm==''||this.kt.ktjs==''||this.kt.ktlb==''||this.kt.ktxz==''||this.kt.ktly==''||this.kt.sfxkt=='')
         alert('内容不得为空!');
       else{
@@ -132,10 +157,10 @@ export default {
         else
           this.kt.sfxkt=1
         // axios.post('http://localhost:8010/addtitle?ktm='+this.kt.ktm+'&gh='+localStorage.getItem('gh')+'&yxh='+localStorage.getItem('yxh')+'&ktjs='+this.kt.ktjs+'&ktlb='+this.kt.ktlb+'&ktxz='+this.kt.ktxz+'&ktly='+this.kt.ktly+'&xbrs='+this.kt.xbrs+'&sfxkt='+this.kt.sfxkt+'&fbsj='+this.current())
-        axios.post('http://localhost:8010/addtitle?ktm='+this.kt.ktm+'&gh='+localStorage.getItem('gh')+'&yxh='+localStorage.getItem('yxh')+'&ktjs='+this.kt.ktjs+'&ktlb='+this.kt.ktlb+'&ktxz='+this.kt.ktxz+'&ktly='+this.kt.ktly+'&xbrs='+this.kt.xbrs+'&sfxkt='+this.kt.sfxkt+'&fbsj='+this.current())
+        axios.post('http://localhost:8010/uptitle?kth='+this.kt.kth+'&ktm='+this.kt.ktm+'&ktjs='+this.kt.ktjs+'&ktlb='+this.kt.ktlb+'&ktxz='+this.kt.ktxz+'&ktly='+this.kt.ktly+'&xbrs='+this.kt.xbrs+'&sfxkt='+this.kt.sfxkt+'&fbsj='+this.current())
         .then((response)=>{
           // console.log(response)
-          alert('发布成功!');
+          alert('修改成功!');
           this.reset()
         }).catch(function (error) { // 请求失败处理
           console.log("---查询出错---！"+error);
@@ -205,6 +230,19 @@ export default {
   padding: 10px;
   font-weight: 700;
 }
+.searchkthbox{
+  display: flex;
+  flex-direction: row;
+  margin-left: 50px;
+  margin-top: 20px;
+  height: 60px;
+}
+.inputkth>>>.el-input__inner{
+  width: 500px;
+  font-size: 18px;
+  margin-left: 20px;
+  height: 60px;
+}
 .ktrowbox{
   display: flex;
   flex-direction: row;
@@ -250,7 +288,7 @@ export default {
 }
 .creatktjs>>>.el-textarea__inner{
   font-size: 18px;
-  min-height: 350px !important;
+  min-height: 300px !important;
 }
 .buttons{
   display: flex;
