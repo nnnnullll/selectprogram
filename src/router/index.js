@@ -35,14 +35,23 @@ export default  new Router({
       name:'ktdetail',//这个路由的名字叫Regiter
       component:()=>import("../components/ktdetail_s"),
     },
-    ,
     {
-      path:'/info',//网站访问路径
+      path:'/teacher_detail',
+      name:'teacher_detail',
+      component:()=>import("../components/teacher_detail"),
+    },
+    {
+      path:'/student_detail',
+      name:'student_detail',
+      component:()=>import("../components/student_detail"),
+    },
+    {
+      path:'/info',
       name:'info',
       component:()=>import("../components/info"),
     },
     {
-      path:'/teacherinfo',//网站访问路径
+      path:'/teacherinfo',
       name:'teacherinfo',
       component:()=>import("../components/teacherinfo"),
     }
