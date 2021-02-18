@@ -4,11 +4,21 @@
     <div class="mainbox">
       <v-left></v-left>
       <div class="rightbox">
-        <div class="righttitle">项目报名</div>
+        <div class="righttitle">项目分配</div>
         <div class="rightline"></div>
         <!-- 要改的展示的模块就是这里 -->
         <div class="rightmainbox">
-
+          <el-form style="display:flex;flex-direction:column;justify-content: center" class="box">
+            <el-form-item>
+              <img :src="imgUrl" style="width: 300px;margin-left: 40px;margin-top: 20px;"  >
+              <div class="title">一键匹配未分配课题</div>
+            </el-form-item>
+            <el-form-item  >
+              <el-button style="width: 250px;height:40px;margin-top:20px;margin-left: 75px;background-color: #5aa7f5;color: white" @click="match" >重置</el-button>
+            </el-form-item>
+            <el-form-item >
+            </el-form-item>
+          </el-form>
         </div>
       </div>
     </div>
@@ -17,7 +27,7 @@
 
 <script>
 import vTop from '../components/topshow';
-import vLeft from '../components/leftshow_s'
+import vLeft from '../components/leftshow_c'
 const axios=require('axios');
 export default {
   name: "progregister",
@@ -27,18 +37,41 @@ export default {
   },
   data(){
     return{
-      
+      imgUrl:require("@/assets/shulogo.png"),
     }
   },
   mounted:function(){
     
   },
   methods:{
+    match(){
+      axios.post('/user/match',{
+        glyh:'1'
+      })
+      .then(res=>{
+        alert('已分配成功！')
+      })
+      .catch(err=>{
+        console.log(err)
+        alert('occur err!')
+      })
+    }
   }
 }
 </script>
 
 <style scoped>
+.title{
+  font-size: 40px;
+  text-align: center;
+}
+.box{
+  /*margin-top: 10%;*/
+  width: 400px;
+  /*background-color: #dee5ed;*/
+  /*background-color: #f5f9fd;*/
+
+}
 .notebox{
   width: 1440px;
   height: 768px;
@@ -76,7 +109,9 @@ export default {
 }
 /* /////////////////////////// */
 .rightmainbox{
-  width: 1280px;
+  width: fit-content;
   height: 688px;
+  padding-left:26% ;
+  padding-top: 5%;
 }
 </style>

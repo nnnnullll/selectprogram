@@ -75,6 +75,16 @@ export default  new Router({
       name:'time',
       component:()=>import("../components/time_c"),
     },
+    {
+      path:'/redfine',
+      name:'redfine',
+      component:()=>import("../components/redfine"),
+    },
+    {
+      path:'/progregister',
+      name:'progregister',
+      component:()=>import("../components/progregister"),
+    },
 
   ]
 })
