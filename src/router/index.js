@@ -80,6 +80,11 @@ export default  new Router({
       name:'redfine',
       component:()=>import("../components/redfine"),
     },
+    {
+      path:'/progregister',
+      name:'progregister',
+      component:()=>import("../components/progregister"),
+    },
 
   ]
 })

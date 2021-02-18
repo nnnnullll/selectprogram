@@ -136,10 +136,9 @@ export default {
   text-align: center;
 }
 .box{
-  margin-top: 10%;
   width: 400px;
   /*background-color: #dee5ed;*/
-  background-color: #f5f9fd;
+  /*background-color: #f5f9fd;*/
 
 }
 .building{
