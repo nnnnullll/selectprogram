@@ -1,12 +1,14 @@
 <template xmlns:overflow="http://www.w3.org/1999/xhtml">
 
-  <div class="notebox">
-    <v-top></v-top>
-    <div class="mainbox">
-      <v-left></v-left>
-      <div class="rightbox">
-        <!-- 要改的展示的模块就是这里 -->
-        <div class="rightmainbox">
+    <div class="notebox">
+      <v-top></v-top>
+      <div class="mainbox">
+        <v-left></v-left>
+        <div class="rightbox">
+          <div class="righttitle">公告通知</div>
+          <div class="rightline"></div>
+          <!-- 要改的展示的模块就是这里 -->
+          <div class="rightmainbox">
             <el-form style="display:flex;flex-direction:column;justify-content: center"  ref="user" class="box">
               <el-form-item>
                 <img :src="imgUrl" style="width: 300px;margin-left: 40px;margin-top: 20px;"  >
@@ -24,28 +26,27 @@
                 </div>
                 <el-button style="width: 250px;height:40px;margin-left: 75px;background-color: #5aa7f5;color: white" @click="submitForm(user)" >重置</el-button>
               </el-form-item>
-<!--              <el-form-item >-->
-<!--                <el-input class="itemlabel2" placeholder="密码" prop="password" type="password" v-model="user.password"-->
-<!--                          show-password clearable>-->
-<!--                </el-input>-->
-<!--              </el-form-item>-->
+              <!--              <el-form-item >-->
+              <!--                <el-input class="itemlabel2" placeholder="密码" prop="password" type="password" v-model="user.password"-->
+              <!--                          show-password clearable>-->
+              <!--                </el-input>-->
+              <!--              </el-form-item>-->
 
 
               <el-form-item >
               </el-form-item>
             </el-form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
 
 </template>
 
 <script>
 import { mapMutations } from 'vuex';
 import vTop from "./topshow";
-import vLeft from "./leftshow_s";
+import vLeft from "./leftshow_c";
 const axios=require('axios');
 export default {
   name:"redfine",
@@ -63,7 +64,11 @@ export default {
       imgUrl:require("@/assets/shulogo.png"),
     }
   },
+
   methods: {
+    leftto(e){
+      this.$router.push('/'+e)
+    },
     ...mapMutations(['changeLogin']),
     submitForm(){
       console.log(this.user)
@@ -97,7 +102,35 @@ export default {
 
 </style>
 <style scoped>
-
+.leftshow{
+  width: 370px;
+  height: 718px;
+  background: #DCE7F0;
+  display: flex;
+  flex-direction: column;
+}
+.lefttext1{
+  margin-left: 30px;
+  margin-top: 30px;
+  width: 85px;
+  height: 20px;
+  font-size: 20px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1px;
+}
+.lefttext2{
+  margin-top: 20px;
+  margin-left: 60px;
+  width: 75px;
+  height: 18px;
+  font-size: 18px;
+  font-family: SimHei;
+  font-weight: 400;
+  color: #0C6EC4;
+  line-height: 1px;
+}
 .title{
   font-size: 40px;
   text-align: center;
