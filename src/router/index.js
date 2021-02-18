@@ -85,6 +85,11 @@ export default  new Router({
       name:'progregister',
       component:()=>import("../components/progregister"),
     },
+    {
+      path:'/baominqk',
+      name:'baominqk',
+      component:()=>import("../components/baominqk"),
+    },
 
   ]
 })
