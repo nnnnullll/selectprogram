@@ -70,6 +70,11 @@ export default  new Router({
       name:'resetkt',
       component:()=>import("../components/resetkt_t"),
     },
+    {
+      path:'/time',
+      name:'time',
+      component:()=>import("../components/time_c"),
+    },
 
   ]
 })
