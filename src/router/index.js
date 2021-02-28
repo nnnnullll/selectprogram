@@ -90,6 +90,11 @@ export default  new Router({
       name:'baominqk',
       component:()=>import("../components/baominqk"),
     },
+    {
+      path:'/fenpei',
+      name:'fenpei',
+      component:()=>import("../components/fenpei"),
+    },
 
   ]
 })

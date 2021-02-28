@@ -50,7 +50,7 @@ export default {
   },
   methods:{
     getnote(){
-      axios.post('http://localhost:8010/getnote')
+      axios.post('http://localhost:8010/getnotet')
       .then((response)=>{
         console.log(response)
         this.notes=response.data
