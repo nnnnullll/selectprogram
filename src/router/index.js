@@ -70,6 +70,15 @@ export default  new Router({
       name:'resetkt',
       component:()=>import("../components/resetkt_t"),
     },
-
+    {
+      path:'/progregister',
+      name:'progregister',
+      component:()=>import("../components/progregister"),
+    },
+    {
+      path:'/titledetail',
+      name:'titledetail',
+      component:()=>import("../components/titledetail"),
+    },
   ]
 })
