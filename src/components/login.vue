@@ -106,7 +106,8 @@ export default {
               else if(this.radio==3){
                 _this.$router.push('/notemanage');
               }
-
+              this.user.input=""
+              this.user.password=""
               alert('登陆成功');
             }
             else{

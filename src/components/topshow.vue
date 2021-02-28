@@ -30,7 +30,22 @@ export default {
       this.top_username=JSON.parse(localStorage.getItem('xm'))
     },
     logout(){
-      
+      this.$confirm('此操作将退出课题系统, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        localStorage.removeItem('xh');
+        localStorage.removeItem('gh');
+        localStorage.removeItem('xm');
+        localStorage.removeItem('yxh');
+        this.$router.replace('/login')
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消操作'
+        });          
+      });
     },
     toptohome(){
       this.$router.push('/note')
@@ -68,11 +83,11 @@ export default {
   margin-left: 360px;
 }
 .top_text3{
-  width: 60px;
+  width: 100px;
   height: 18px;
   font-size: 20px;
   margin-top: 15px;
-  margin-left: 260px;
+  margin-left: 220px;
 }
 .top_text4{
   width: 40px;
