@@ -159,16 +159,16 @@
 
         if (e.currentTarget.innerText === '取消报名') {
           // this.studentSign0(item.kth, item.gh, 2)
-          this.studentSign0(item.kth, item.gh, parseInt(sessionStorage.getItem(xh)))
+          this.studentSign0(item.kth, item.gh, localStorage.getItem('xh'))
           // this.studentState0(2)
-          this.studentState0(parseInt(sessionStorage.getItem(xh)))
+          this.studentState0(parseInt(localStorage.getItem('xh')))
           e.currentTarget.innerText = '报 名'
           alert('已取消报名')
         } else {
           // this.studentState1(2)
-          this.studentState1(parseInt(sessionStorage.getItem(xh)))
+          this.studentState1(parseInt(localStorage.getItem('xh')))
           // this.studentSign1(item.kth, item.gh, 2)
-          this.studentSign1(item.kth, item.gh, parseInt(sessionStorage.getItem(xh)))
+          this.studentSign1(item.kth, item.gh, parseInt(localStorage.getItem('xh')))
           e.currentTarget.innerText = '取消报名'
           alert('成功报名')
         }
