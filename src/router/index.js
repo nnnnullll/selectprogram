@@ -71,14 +71,25 @@ export default  new Router({
       component:()=>import("../components/resetkt_t"),
     },
     {
+      path:'/time',
+      name:'time',
+      component:()=>import("../components/time_c"),
+    },
+    {
+      path:'/redfine',
+      name:'redfine',
+      component:()=>import("../components/redfine"),
+    },
+    {
       path:'/progregister',
       name:'progregister',
       component:()=>import("../components/progregister"),
     },
     {
-      path:'/titledetail',
-      name:'titledetail',
-      component:()=>import("../components/titledetail"),
+      path:'/baominqk',
+      name:'baominqk',
+      component:()=>import("../components/baominqk"),
     },
+
   ]
 })

@@ -140,8 +140,9 @@ export default {
 }
 /* /////////////////////////// */
 .rightmainbox{
-  width: 1280px;
+  width: 1225px;
   height: 688px;
+  overflow: auto;
 }
 .demo-noteForm{
   width: 1180px;
