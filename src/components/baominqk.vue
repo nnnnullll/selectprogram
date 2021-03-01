@@ -49,7 +49,9 @@ export default {
       bmqk:""
     }
   },
-  activated:function(){ 
+  activated:function(){
+    this.kt={}
+    this.bmqk="" 
     this.getlastkth();
   },
   methods:{

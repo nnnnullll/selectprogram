@@ -194,7 +194,7 @@ export default {
       }
     }
   },
-  mounted:function(){
+  activated:function(){
     this.getStuInfo();
   },
   methods:{

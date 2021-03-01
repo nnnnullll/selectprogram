@@ -17,7 +17,7 @@ export default {
       top_date:""
     }
   },
-  mounted:function(){
+  activated:function(){
     this.getyear();
     this.setyhm();
   },
