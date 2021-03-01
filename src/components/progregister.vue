@@ -154,7 +154,7 @@
         })
       },
       handleButtonClick (e, index) {
-        var item = this.relists[index]
+        var item = this.curlists[index]
 
         if (e.currentTarget.innerText === '取消报名') {
           // this.studentSign0(item.kth, item.gh, 2)

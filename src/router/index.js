@@ -95,6 +95,11 @@ export default  new Router({
       name:'fenpei',
       component:()=>import("../components/fenpei"),
     },
+    {
+      path:'/shenhe',
+      name:'shenhe',
+      component:()=>import("../components/shenhe"),
+    },
 
   ]
 })

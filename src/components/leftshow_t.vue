@@ -8,7 +8,7 @@
          <div class="lefttext2" @click="leftto('deletekt')">课题删除</div>
          <div class="lefttext2" @click="leftto('resetkt')">课题修改</div>
         <div class="lefttext1" >课题管理</div>
-        <div class="lefttext2" @click="leftto('resetkt')">名单管理</div>
+        <div class="lefttext2" @click="leftto('mdgl')">名单管理</div>
     </div>
 </template>
 
@@ -17,17 +17,17 @@ export default {
   name: "v-left",
   data(){
     return{
-      
+
     }
   },
   mounted:function(){
-    
+
   },
   methods:{
     leftto(e){
       this.$router.push('/'+e)
     }
-    
+
   }
 }
 </script>

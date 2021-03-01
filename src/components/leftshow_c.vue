@@ -5,6 +5,7 @@
         <div class="lefttext2" @click="leftto('notemanage')">公告管理</div>
         <div class="lefttext1" >项目管理</div>
         <div class="lefttext2" @click="leftto('fenpei')">项目分配</div>
+        <div class="lefttext2" @click="leftto('shenhe')">项目审核</div>
         <div class="lefttext2" @click="leftto('time')">时间管理</div>
         <div class="lefttext1" >账号管理</div>
         <div class="lefttext2" @click="leftto('redfine')">密码重置</div>
@@ -17,17 +18,17 @@ export default {
   name: "v-left",
   data(){
     return{
-      
+
     }
   },
   mounted:function(){
-    
+
   },
   methods:{
     leftto(e){
       this.$router.push('/'+e)
     }
-    
+
   }
 }
 </script>
