@@ -731,7 +731,7 @@ input{
   flex-direction: row;
 }
 .rightbox{
-  width: 1280px;
+  width: 1236px;
   display: flex;
   flex-direction: column;
 }

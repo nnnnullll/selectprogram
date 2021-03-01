@@ -102,58 +102,12 @@ export default {
 
 </style>
 <style scoped>
-.leftshow{
-  width: 370px;
-  height: 718px;
-  background: #DCE7F0;
-  display: flex;
-  flex-direction: column;
-}
-.lefttext1{
-  margin-left: 30px;
-  margin-top: 30px;
-  width: 85px;
-  height: 20px;
-  font-size: 20px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: #000000;
-  line-height: 1px;
-}
-.lefttext2{
-  margin-top: 20px;
-  margin-left: 60px;
-  width: 75px;
-  height: 18px;
-  font-size: 18px;
-  font-family: SimHei;
-  font-weight: 400;
-  color: #0C6EC4;
-  line-height: 1px;
-}
 .title{
   font-size: 40px;
   text-align: center;
 }
 .box{
   width: 400px;
-  /*background-color: #dee5ed;*/
-  /*background-color: #f5f9fd;*/
-
-}
-.building{
-  width: 1440px;
-  /*height: 900px;*/
-}
-.bottom{
-  /*position: fixed;*/
-  /*width: 1440px;*/
-  /*height: 659px;*/
-  opacity: 0.87;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  top: 1%;
 }
 .itemlabel1{
   padding-left: 75px;
@@ -165,67 +119,7 @@ export default {
   /*justify-content: center;*/
   text-align:center;
 }
-.itemlabel2{
-  padding-left: 75px;
-  width: 250px;
-  height: 50px;
-  border-radius: 10px;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*text-align:center;*/
-}
-.circle{
-  width: 238px;
-  height: 238px;
-  background: #43b2ff;
-  opacity: 0.97;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  margin-top: 10%;
-  margin-bottom: 1%;
-}
-.circle2img{
-  margin-left: 5%;
-  background: #f6deca;
-  border-radius: 50%;
-  width:4.8%;
-  height: 4.8%;
-}
-.text2{
-  width: 48px;
-  height: 22px;
-  font-size: 23px;
-  font-family: ZTSJ-BaguetteFont;
-  font-weight: 400;
-  color: #000000;
-  margin-right: 1%;
-  margin-top: 29px;
-}
-.text3{
-  width: 48px;
-  height: 22px;
-  font-size: 23px;
-  font-family: ZTSJ-BaguetteFont;
-  font-weight: 400;
-  color: #000000;
-  margin-right: 1%;
-  margin-top: 29px;
-}
-.btn1{
-  width: 140px;
-  height: 50px;
-  background: #4FA1F4;
-  border-radius: 10px;
-  color: #ffffff;
-}
-.btn2{
-  width: 140px;
-  height: 50px;
-  background: #4FA1F4;
-  border-radius: 10px;
-  color: #ffffff;
-}
+
 </style>
 <style scoped>
 .itemlabel1>>>input{
@@ -251,7 +145,7 @@ export default {
   flex-direction: row;
 }
 .rightbox{
-  width: 1280px;
+  width: 1236px;
   height: 718px;
   display: flex;
   flex-direction: column;
