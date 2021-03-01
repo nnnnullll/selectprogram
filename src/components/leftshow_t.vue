@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .leftshow{
-  width: 370px;
+  width: 204px;
   height: 718px;
   background: #DCE7F0;
   display: flex;
