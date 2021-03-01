@@ -1,5 +1,5 @@
 <template>
-    <div class="leftshow" style="width: 215px">
+    <div class="leftshow" style="width: 204px">
         <div class="lefttext1">基础功能</div>
         <div class="lefttext2" @click="leftto('note')">公告通知</div>
         <div class="lefttext2" @click="leftto('info')">个人信息</div>
@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 .leftshow{
-  width: 370px;
+  width: 204px;
   height: 718px;
   background: #DCE7F0;
   display: flex;
