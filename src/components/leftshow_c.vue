@@ -1,8 +1,8 @@
 <template>
     <div class="leftshow">
         <div class="lefttext1">基础功能</div>
-        <div class="lefttext2" @click="leftto('addnote')">公告发布</div>
         <div class="lefttext2" @click="leftto('notemanage')">公告管理</div>
+        <div class="lefttext2" @click="leftto('addnote')">公告发布</div>
         <div class="lefttext1" >项目管理</div>
         <div class="lefttext2" @click="leftto('fenpei')">项目分配</div>
         <div class="lefttext2" @click="leftto('shenhe')">项目审核</div>
@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .leftshow{
-  width: 370px;
+  width: 204px;
   height: 718px;
   background: #DCE7F0;
   display: flex;

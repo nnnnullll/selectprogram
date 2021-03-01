@@ -4,7 +4,7 @@
         <div class="lefttext2" @click="leftto('notet')">公告通知</div>
         <div class="lefttext2" @click="leftto('teacherinfo')">个人信息</div>
         <div class="lefttext1" >课题发布</div>
-        <div class="lefttext2" @click="leftto('addkt')">课题发布</div>
+        <div class="lefttext2" @click="lefttott('addkt')">课题发布</div>
          <div class="lefttext2" @click="leftto('deletekt')">课题删除</div>
          <div class="lefttext2" @click="leftto('resetkt')">课题修改</div>
         <div class="lefttext1" >课题管理</div>
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+const axios=require('axios');
 export default {
   name: "v-left",
   data(){
@@ -26,6 +27,35 @@ export default {
   methods:{
     leftto(e){
       this.$router.push('/'+e)
+    },
+    lefttott(e){
+      axios.post("/getteacherbygh?gh="+localStorage.getItem("gh"))
+      .then(res=>{
+        if(res.data.cz!=2){
+          alert("发布课题时间未到！")
+        }
+        else{
+          
+          this.$router.push('/'+e)
+        }
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    },
+    lefttomm(e){
+      axios.post("/getteacherbygh?gh="+localStorage.getItem("gh"))
+      .then(res=>{
+        if(res.data.cz!=4){
+          alert("双选时间未到！")
+        }
+        else{
+          this.$router.push('/'+e)
+        }
+      })
+      .catch(err=>{
+        console.log(err)
+      })
     }
 
   }
@@ -34,7 +64,7 @@ export default {
 
 <style scoped>
 .leftshow{
-  width: 370px;
+  width: 204px;
   height: 718px;
   background: #DCE7F0;
   display: flex;
