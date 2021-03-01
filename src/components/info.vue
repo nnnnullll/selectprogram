@@ -603,7 +603,7 @@ export default {
   flex-direction: row;
 }
 .rightbox{
-  width: 1280px;
+  /*width: 1280px;*/
   display: flex;
   flex-direction: column;
 }

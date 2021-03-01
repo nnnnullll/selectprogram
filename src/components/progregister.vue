@@ -121,7 +121,6 @@
         })
       },
       studentSign1 (kth, gh, xh) {
-        alert('kth=' + kth + ',gh=' + gh + ',xh=' + xh)
         axios.post('http://localhost:8010/studentSign1?kth=' + kth + '&gh=' + gh + '&xh=' + xh)
           // http://localhost:8010/studentSign?kth=1&gh=1&xh=2
           .then((response) => {

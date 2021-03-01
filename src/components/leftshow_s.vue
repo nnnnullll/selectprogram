@@ -1,5 +1,5 @@
 <template>
-    <div class="leftshow">
+    <div class="leftshow" style="width: 215px">
         <div class="lefttext1">基础功能</div>
         <div class="lefttext2" @click="leftto('note')">公告通知</div>
         <div class="lefttext2" @click="leftto('info')">个人信息</div>
