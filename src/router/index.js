@@ -100,6 +100,11 @@ export default  new Router({
       name:'shenhe',
       component:()=>import("../components/shenhe"),
     },
+    {
+      path:'/mdgl',
+      name:'mdgl',
+      component:()=>import("../components/mdgl"),
+    },
 
   ]
 })

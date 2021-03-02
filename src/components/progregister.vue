@@ -23,7 +23,6 @@
                         <tr v-for="(item,index) in curlists" :key="item.xuhao">
                             <td>{{item.xuhao}}</td>
                             <td><a class="target" href="javascript:void(0);" @click="todetail(index)">{{item.ktm}}</a>
-<!--                            <td><a class="target" href="javascript:void(0);" @click="todetail(index)" target="_blank">{{item.ktm}}</a>-->
                             </td>
                             <td>{{item.ktxz}}</td>
                             <td>{{item.ktly}}</td>
