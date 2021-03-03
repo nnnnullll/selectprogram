@@ -76,7 +76,7 @@
         totalPage: 0,
         curlists: [],
         myselect: -1,
-        isXZ1: false,
+        isXZ1: -1,
       }
     },
     activated: function () {
@@ -92,8 +92,8 @@
         axios.post('http://localhost:8010/getrelist')
           .then((response) => {
             this.relists = response.data
-            if(this.relists.length!=0){
-              this.page=1
+            if (this.relists.length != 0) {
+              this.page = 1
               this.totalCount = this.relists.length
               if (this.totalCount % this.pageSize == 0) {
                 this.totalPage = parseInt(this.totalCount / this.pageSize)
@@ -112,11 +112,15 @@
       },
       getMyselect () {
         // axios.post('http://localhost:8010/getmyselect?xh=2')
-          axios.post('http://localhost:8010/getmyselect?xh='+localStorage.getItem('xh'))
+        axios.post('http://localhost:8010/getmyselect?xh=' + localStorage.getItem('xh'))
           .then((response) => {
-            if (response.data != 0) {
+            console.log(response.data)
+            if (response.data) {
               this.myselect = response.data
+            } else {
+              this.myselect = -1
             }
+            console.log('myselect=' + this.myselect)
           }).catch(function (error) { // 请求失败处理
           console.log('---查询出错---！' + error)
         })
@@ -125,7 +129,7 @@
         axios.post('http://localhost:8010/isxz1?xh=' + localStorage.getItem('xh'))
           .then((response) => {
             this.isXZ1 = response.data
-            alert("isxz1="+this.isXZ1)
+            console.log('askXZ1=' + this.isXZ1)
           }).catch(function (error) { // 请求失败处理
           console.log('---查询出错---！' + error)
         })
@@ -165,31 +169,35 @@
       },
       handleButtonClick (e, index) {
         var item = this.curlists[index]
-        this.askXZ1()
-
+        console.log('click' + e.currentTarget.innerText)
         if (e.currentTarget.innerText === '取消报名') {
           // this.studentSign0(item.kth, item.gh, 2)
           this.studentSign0(item.kth, item.gh, localStorage.getItem('xh'))
           // this.studentState0(2)
           this.studentState0(parseInt(localStorage.getItem('xh')))
-          e.currentTarget.innerText = '报 名'
+          this.askXZ1()
+          // e.currentTarget.innerText = '报 名'
           alert('已取消报名')
+          this.getMyselect()
           this.getRelist()
           window.location.reload()
         } else {//想要报名
-          if (this.isXZ1) {//已经报名
+          if (this.isXZ1 == 1) {//已经报名
             alert('只能选择一个课题报名，请先取消当前报名！')
           } else {
             // this.studentState1(2)
             this.studentState1(parseInt(localStorage.getItem('xh')))
             // this.studentSign1(item.kth, item.gh, 2)
             this.studentSign1(item.kth, item.gh, parseInt(localStorage.getItem('xh')))
-            e.currentTarget.innerText = '取消报名'
+            // e.currentTarget.innerText = '取消报名'
             alert('成功报名')
+            this.getMyselect()
+            this.askXZ1()
             this.getRelist()
             window.location.reload()
           }
         }
+
       },
       fstPage () {
         this.page = 1
@@ -250,73 +258,80 @@
         }
       },
       testBM: function (index) {
-        return this.relists[index].kth == this.myselect
+        return this.relists[index].kth === this.myselect
       },
       todetail: function (index) {
         let routeUrl = this.$router.resolve({
-          path: "/ktdetail",
-          query: {kth:this.relists[index].kth}
-        });
-        window.open(routeUrl.href, '_blank');
+          path: '/ktdetail',
+          query: {kth: this.relists[index].kth}
+        })
+        window.open(routeUrl.href, '_blank')
       },
       toteacher: function (e) {
         let routeUrl = this.$router.resolve({
-          path: "/teacher_detail",
-          query: {name:e}
-        });
-        window.open(routeUrl.href, '_blank');
+          path: '/teacher_detail',
+          query: {name: e}
+        })
+        window.open(routeUrl.href, '_blank')
       }
     }
-}
+  }
 </script>
 
 <style scoped>
-.title{
-  font-size: 40px;
-  text-align: center;
-}
-.box{
-  /*margin-top: 10%;*/
-  width: 400px;
-  /*background-color: #dee5ed;*/
-  /*background-color: #f5f9fd;*/
+    .title {
+        font-size: 40px;
+        text-align: center;
+    }
 
-}
-.notebox{
-  width: 1440px;
-  height: 768px;
-  font-family: SimHei;
-}
-.mainbox{
-  width: 1440px;
-  height: 718px;
-  display: flex;
-  flex-direction: row;
-}
-.rightbox{
-  width: 1236px;
-  height: 718px;
-  display: flex;
-  flex-direction: column;
-}
-.righttitle{
-  width: 129px;
-  height: 28px;
-  font-size: 30px;
-  font-family: SimHei;
-  font-weight: 400;
-  color:#2C7DC3;;
-  line-height: 1px;
-  margin-top: 35px;
-  margin-left: 30px;
-}
-.rightline{
-  width: 1186px;
-  height: 1px;
-  background: #C6CACE;
-  margin-top: 5px;
-  margin-left: 30px;
-}
+    .box {
+        /*margin-top: 10%;*/
+        width: 400px;
+        /*background-color: #dee5ed;*/
+        /*background-color: #f5f9fd;*/
+
+    }
+
+    .notebox {
+        width: 1440px;
+        height: 768px;
+        font-family: SimHei;
+    }
+
+    .mainbox {
+        width: 1440px;
+        height: 718px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .rightbox {
+        width: 1236px;
+        height: 718px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .righttitle {
+        width: 129px;
+        height: 28px;
+        font-size: 30px;
+        font-family: SimHei;
+        font-weight: 400;
+        color: #2C7DC3;;
+        line-height: 1px;
+        margin-top: 35px;
+        margin-left: 30px;
+    }
+
+    .rightline {
+        width: 1186px;
+        height: 1px;
+        background: #C6CACE;
+        margin-top: 5px;
+        margin-left: 30px;
+    }
+
     /* /////////////////////////// */
     .rightmainbox {
         width: 1225px;
@@ -345,9 +360,11 @@
         height: 30px;
         text-align: center;
     }
-    .teacherbutton{
-      color: #2C7DC3;
+
+    .teacherbutton {
+        color: #2C7DC3;
     }
+
     .list tr a {
         color: #2C7DC3;
         text-decoration: none;
