@@ -8,65 +8,65 @@
                 <div class="rightline"></div>
                 <!-- 要改的展示的模块就是这里 -->
                 <div class="rightmainbox">
-                    <div style="margin-bottom: 30px" v-for="(item,index) in teacherSelects" :key="index">
-                        <div class="notelist_title">
-                            <div class="notelist_title_text">待匹配课题列表</div>
-                        </div>
-                        <div class="notelist_lan">
+                    <div class="notelist_title">
+                      <div class="notelist_title_text">待匹配课题列表</div>
+                    </div>
+                    <div class="notelist_lan">
                             <div class="notelist_lan1">课题号</div>
-                            <div class="notelist_lan2">发布时间</div>
-                            <div class="notelist_lan3">课题内容</div>
-                            <div class="notelist_lan4">报名情况</div>
+                            <div class="notelist_lan2">课题名</div>
+                            <div class="notelist_lan3">已报名学生</div>
+                            <div class="notelist_lan4">发布时间</div>
                         </div>
+                    <div  v-for="(item,index) in teacherSelects" :key="index">
+                        
+                        
                         <div class="notelistbox">
                             <div class="notelistrq">{{item.kt.kth}}</div>
-                            <div class="notelistdx">{{item.kt.fbsj}}</div>
+                            <div class="notelistdx">{{item.kt.ktm}}</div>
                             <div class="notelistnr">
-                                <div class="notelistnr_bt">课题名：{{item.kt.ktm}}</div>
-                                <div class="notelistnr_nr">课题介绍：{{item.kt.ktjs}}</div>
+                                <table class="select-table" border="1" cellpadding="0" cellspacing="0" v-if="testShow(index)">
+                                  <thead>
+                
+                                  <th>学号</th>
+                                  <th>姓名</th>
+                                  <th>性别</th>
+                                  <th>专业</th>
+                                  <th>均绩</th>
+                                  <th>选择</th>
+                                  </thead>
+                                  <tr v-for="(subitem,sindex) in teacherSelects[index].stuList" :key="sindex">
+                                     
+                                      <td>{{subitem.xh}}</td>
+                                      <td>{{subitem.xm}}</td>
+                                      <td>{{subitem.xb}}</td>
+                                      <td>{{subitem.zy}}</td>
+                                      <td>{{subitem.jj}}</td>
+                                      <td>
+                                          <el-button @click="conmyselect(index,sindex)">选择</el-button>
+                                      </td>
+                                  </tr>
+                              </table>
                             </div>
-                            <div class="notelistsc" v-if="testShow(index)">待选择</div>
+                            <div class="notelistsc" v-if="testShow(index)">{{item.kt.fbsj}}</div>
                             <div class="notelistsc" v-else>未选择</div>
                         </div>
-                        <table class="select-table" border="1" cellpadding="0" cellspacing="0" v-if="testShow(index)">
-                            <thead>
-                            <th>年级</th>
-                            <th>学号</th>
-                            <th>姓名</th>
-                            <th>性别</th>
-                            <th>专业</th>
-                            <th>均绩</th>
-                            <th>选择</th>
-                            </thead>
-                            <tr v-for="(subitem,sindex) in teacherSelects[index].stuList" :key="sindex">
-                                <td>{{subitem.nj}}</td>
-                                <td>{{subitem.xh}}</td>
-                                <td>{{subitem.xm}}</td>
-                                <td>{{subitem.xb}}</td>
-                                <td>{{subitem.zy}}</td>
-                                <td>{{subitem.jj}}</td>
-                                <td>
-                                    <el-button @click="myselect(index,sindex)">选择</el-button>
-                                </td>
-                            </tr>
-                        </table>
+                        
                     </div>
 
                     <div class="notelist_title">
-                        <div class="notelist_title_text">已选择列表</div>
+                        <div class="notelist_title_text">已匹配列表</div>
                     </div>
                     <div class="notelist_lan">
                         <div class="notelist_lan1">课题号</div>
-                        <div class="notelist_lan2">发布时间</div>
-                        <div class="notelist_lan3">课题内容</div>
-                        <div class="notelist_lan4">报名情况</div>
+                        <div class="notelist_lan2">课题名</div>
+                        <div class="notelist_lan3">已匹配学生</div>
+                        <div class="notelist_lan4">发布时间</div>
                     </div>
-                    <div v-for="(itemed,indexed) in teacherSelected" :key="indexed">
+                    <div style="margin-bottom: 30px" v-for="(itemed,indexed) in teacherSelected" :key="indexed">
                         <div class="notelistbox">
                             <div class="notelistrq">{{itemed.kt.kth}}</div>
-                            <div class="notelistdx">{{itemed.kt.fbsj}}</div>
+                            <div class="notelistdx">{{itemed.kt.ktm}}</div>
                             <div class="notelistnr">
-                                <div class="notelistnr_bt">课题名：{{itemed.kt.ktm}}</div>
                                 <table class="selected-table" border="1" cellpadding="0" cellspacing="0">
                                     <tr v-for="(subitemed,sindexed) in teacherSelected[indexed].stuList"
                                         :key="sindexed">
@@ -79,7 +79,7 @@
                                 </table>
 
                             </div>
-                            <div class="notelistsc">已匹配</div>
+                            <div class="notelistsc">{{itemed.kt.fbsj}}</div>
                         </div>
                     </div>
                 </div>
@@ -139,6 +139,20 @@
         } else {
           return false
         }
+      },
+      conmyselect (e,index){
+        this.$confirm('此操作将选择该学生进入改课题, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.myselect (e,index)
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消操作'
+            });          
+          });
       },
       myselect: function (index, sindex) {
         var teacherselectKt = this.teacherSelects[index].kt
@@ -350,13 +364,13 @@
     }
 
     .select-table {
-        width: 1124px;
+        width: 743px;
         min-height: 40px;
-        margin-left: 50px;
         font-size: 18px;
         line-height: 30px;
-        margin-top: 10px;
-        border-bottom: #C6CACE solid 1px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: #eaeef3 solid 1px;
         text-align: center;
     }
 
@@ -367,9 +381,11 @@
     .selected-table{
         width: 90%;
         margin: 5px auto;
+        border: #C6CACE solid 1px;
     }
     .selected-table tr{
         text-align: center;
         background-color: rgba(230,255,255,0.5);
+        
     }
 </style>

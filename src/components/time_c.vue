@@ -32,16 +32,52 @@ export default {
   },
   data(){
     return{
-      b1:"开启",
-      b2:"开启",
-      b3:"开启",
-      b4:"开启",
+      b1:"",
+      b2:"",
+      b3:"",
+      b4:"",
     }
   },
-  mounted:function(){
-    
+  activated:function(){
+    this.getzt()
   },
   methods:{
+    getzt(){
+      axios.post('http://localhost:8010/getteacherbygh?gh=1')
+      .then((response)=>{
+        if(response.data.cz==2){
+          this.b1="关闭"
+          this.b3="开启"
+        }
+        else if(response.data.cz==4){
+          this.b1="开启"
+          this.b3="关闭"
+        }
+        else{
+          this.b1="开启"
+          this.b3="开启"
+        }
+       axios.post("/user/getStuById",{
+        xh:1
+      })
+        .then((response)=>{
+          console.log(response.data.res.cz)
+          if(response.data.res.cz==1){
+            this.b2="关闭"
+            this.b4="关闭"
+          }
+          else{
+            this.b2="开启"
+            this.b4="开启"
+          }  
+        }).catch(function (error) { // 请求失败处理
+          console.log("---查询出错---！"+error);
+        })
+          
+      }).catch(function (error) { // 请求失败处理
+        console.log("---查询出错---！"+error);
+      })
+    },
     cb1(){
       this.$confirm('此操作将'+this.b1+'教师发布课题权限, 是否继续?', '提示', {
           confirmButtonText: '确定',
