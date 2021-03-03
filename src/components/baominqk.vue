@@ -21,7 +21,7 @@
             <div class="notelistrq">{{kt.kth}}</div>
             <div class="notelistdx">{{kt.fbsj}}</div>
             <div class="notelistnr">
-              <div class="notelistnr_bt">课题名：{{kt.ktm}}</div>
+              <div class="notelistnr_bt" @click="todetail">课题名：{{kt.ktm}}</div>
               <div class="notelistnr_nr">课题介绍：{{kt.ktjs}}</div>
             </div>
             <div class="notelistsc">{{bmqk}}</div>
@@ -55,6 +55,13 @@ export default {
     this.getlastkth();
   },
   methods:{
+    todetail: function (e) {
+        let routeUrl = this.$router.resolve({
+          path: "/ktdetail",
+          query: {kth:this.kt.kth}
+        });
+        window.open(routeUrl.href, '_blank');
+    },
     getlastkth(){
       axios.post('http://localhost:8010/getlastTitleidByxh?xh='+localStorage.getItem("xh"))
       .then((response)=>{
@@ -62,6 +69,7 @@ export default {
           this.getprekth()
         else{
           this.getkt(response.data)
+          console.log(response.data)
           this.bmqk="报名成功"
         }  
       }).catch(function (error) { // 请求失败处理
@@ -82,9 +90,9 @@ export default {
       })
     },
     getkt(e){
-      axios.post('http://localhost:8010/gettitlebykth?kth='+e)
+      axios.post('http://localhost:8010/gettitlebykth?kth='+3)
       .then((response)=>{
-        console.log(response)
+        console.log(response.data)
         this.kt=response.data
       }).catch(function (error) { // 请求失败处理
         console.log("---查询出错---！"+error);
@@ -228,7 +236,8 @@ export default {
 }
 .notelistnr_bt{
   font-weight: 700;
-   line-height: 40px;
+  line-height: 40px;
+  color: #2C7DC3;
 }
 .notelistnr_nr{
   line-height: 30px;

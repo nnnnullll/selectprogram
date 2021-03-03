@@ -26,7 +26,7 @@
                             </td>
                             <td>{{item.ktxz}}</td>
                             <td>{{item.ktly}}</td>
-                            <td>{{item.xm}}</td>
+                            <td class="teacherbutton" @click="toteacher(item.xm)">{{item.xm}}</td>
                             <td>{{item.xkrs}}/{{item.xbrs}}</td>
                             <td>
                                 <el-button v-if="testBM(index)"
@@ -236,8 +236,15 @@
       },
       todetail: function (index) {
         let routeUrl = this.$router.resolve({
-          path: "/titledetail",
+          path: "/ktdetail",
           query: {kth:this.relists[index].kth}
+        });
+        window.open(routeUrl.href, '_blank');
+      },
+      toteacher: function (e) {
+        let routeUrl = this.$router.resolve({
+          path: "/teacher_detail",
+          query: {name:e}
         });
         window.open(routeUrl.href, '_blank');
       }
@@ -320,7 +327,9 @@
         height: 30px;
         text-align: center;
     }
-
+    .teacherbutton{
+      color: #2C7DC3;
+    }
     .list tr a {
         color: #2C7DC3;
         text-decoration: none;

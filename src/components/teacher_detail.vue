@@ -146,9 +146,9 @@ export default {
       }
     }
   },
-  mounted:function(){
-    this.student.name=this.$route.params.gh
-    console.log(this.$route.params.gh)
+  activated:function(){
+    this.student.name=this.$route.query.name
+    console.log(this.$route.query.name)
     this.getStuInfo(this.student.name);
 
   },
