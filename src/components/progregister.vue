@@ -92,8 +92,8 @@
         axios.post('http://localhost:8010/getrelist')
           .then((response) => {
             this.relists = response.data
-            if (this.relists.length != 0) {
-              this.page = 1
+            if(this.relists.length!=0){
+              this.page=1
               this.totalCount = this.relists.length
               if (this.totalCount % this.pageSize == 0) {
                 this.totalPage = parseInt(this.totalCount / this.pageSize)
@@ -112,7 +112,7 @@
       },
       getMyselect () {
         // axios.post('http://localhost:8010/getmyselect?xh=2')
-        axios.post('http://localhost:8010/getmyselect?xh=' + localStorage.getItem('xh'))
+          axios.post('http://localhost:8010/getmyselect?xh='+localStorage.getItem('xh'))
           .then((response) => {
             if (response.data != 0) {
               this.myselect = response.data
@@ -166,7 +166,6 @@
       handleButtonClick (e, index) {
         var item = this.curlists[index]
         this.askXZ1()
-        console.log('isXZ1=' + this.isXZ1)
 
         if (e.currentTarget.innerText === '取消报名') {
           // this.studentSign0(item.kth, item.gh, 2)
@@ -255,69 +254,69 @@
       },
       todetail: function (index) {
         let routeUrl = this.$router.resolve({
-          path: '/ktdetail',
-          query: {kth: this.relists[index].kth}
-        })
-        window.open(routeUrl.href, '_blank')
+          path: "/ktdetail",
+          query: {kth:this.relists[index].kth}
+        });
+        window.open(routeUrl.href, '_blank');
+      },
+      toteacher: function (e) {
+        let routeUrl = this.$router.resolve({
+          path: "/teacher_detail",
+          query: {name:e}
+        });
+        window.open(routeUrl.href, '_blank');
       }
     }
-  }
+}
 </script>
 
 <style scoped>
-    .title {
-        font-size: 40px;
-        text-align: center;
-    }
+.title{
+  font-size: 40px;
+  text-align: center;
+}
+.box{
+  /*margin-top: 10%;*/
+  width: 400px;
+  /*background-color: #dee5ed;*/
+  /*background-color: #f5f9fd;*/
 
-    .box {
-        /*margin-top: 10%;*/
-        width: 400px;
-        /*background-color: #dee5ed;*/
-        /*background-color: #f5f9fd;*/
-
-    }
-
-    .notebox {
-        width: 1440px;
-        height: 768px;
-        font-family: SimHei;
-    }
-
-    .mainbox {
-        width: 1440px;
-        height: 718px;
-        display: flex;
-        flex-direction: row;
-    }
-
-    .rightbox {
-        width: 1236px;
-        height: 718px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .righttitle {
-        width: 129px;
-        height: 28px;
-        font-size: 30px;
-        font-family: SimHei;
-        font-weight: 400;
-        color: #2C7DC3;;
-        line-height: 1px;
-        margin-top: 35px;
-        margin-left: 30px;
-    }
-
-    .rightline {
-        width: 1186px;
-        height: 1px;
-        background: #C6CACE;
-        margin-top: 5px;
-        margin-left: 30px;
-    }
-
+}
+.notebox{
+  width: 1440px;
+  height: 768px;
+  font-family: SimHei;
+}
+.mainbox{
+  width: 1440px;
+  height: 718px;
+  display: flex;
+  flex-direction: row;
+}
+.rightbox{
+  width: 1236px;
+  height: 718px;
+  display: flex;
+  flex-direction: column;
+}
+.righttitle{
+  width: 129px;
+  height: 28px;
+  font-size: 30px;
+  font-family: SimHei;
+  font-weight: 400;
+  color:#2C7DC3;;
+  line-height: 1px;
+  margin-top: 35px;
+  margin-left: 30px;
+}
+.rightline{
+  width: 1186px;
+  height: 1px;
+  background: #C6CACE;
+  margin-top: 5px;
+  margin-left: 30px;
+}
     /* /////////////////////////// */
     .rightmainbox {
         width: 1225px;
@@ -346,7 +345,9 @@
         height: 30px;
         text-align: center;
     }
-
+    .teacherbutton{
+      color: #2C7DC3;
+    }
     .list tr a {
         color: #2C7DC3;
         text-decoration: none;

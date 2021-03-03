@@ -24,8 +24,8 @@
           <div  class="ktrowbox">
             <div class="ktrow_left">课题名称</div>
             <div class="ktrow_right">{{kt.ktm}}</div>
-            <div class="ktrow_left" @click="gototeacher">指导老师</div>
-            <div class="ktrow_right" @click="gototeacher">{{kt.gh}}</div>
+            <div class="ktrow_left"  @click="gototeacher">指导老师</div>
+            <div class="ktrow_right_teacher" @click="gototeacher">{{kt.gh}}</div>
           </div>
           <div  class="ktrowbox">
             <div class="ktrow_left">课题类别</div>
@@ -66,14 +66,16 @@ export default {
     }
   },
   activated:function(){
-    if(this.$route.params.kth)
-      this.getkt(this.$route.params.kth);
+    if(this.$route.query.kth)
+      this.getkt(this.$route.query.kth);
   },
   methods:{
-    gototeacher(){
-      console.log(this.kt.gh)
-      this.$router.push({name:"teacher_detail",params:{gh:this.kt.gh}})
-      // this.$router.push('/teacher_detail?gh='+this.kt.gh)
+    gototeacher: function () {
+        let routeUrl = this.$router.resolve({
+          path: "/teacher_detail",
+          query: {name:this.kt.gh}
+        });
+        window.open(routeUrl.href, '_blank');
     },
     search(){
       this.getkt(this.input)
@@ -194,6 +196,18 @@ export default {
   text-align: center;
   line-height: 40px;
   border-left: #C6CACE solid 1px;
+}
+.ktrow_right_teacher{
+  width: 362px;
+  min-height: 40px;
+  text-align:left;
+  vertical-align: middle;
+  line-height: 40px;
+  border-left: #C6CACE solid 1px;
+  border-right:#C6CACE solid 1px;
+  display: flex;
+  flex-direction: column;
+  color: #2C7DC3;
 }
 .ktrow_right{
   width: 362px;

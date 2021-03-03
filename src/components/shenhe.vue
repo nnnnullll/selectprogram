@@ -26,10 +26,10 @@
                             <td style="width: 168px">{{item.ktly}}</td>
                             <td style="width: 112px">{{item.xbrs}}</td>
                             <td style="width:280px">
-                                <button @click="titlePass($event,index)" style="background-color: rgba(0,0,255,0.2);">
+                                <button @click="contitlePass($event,index)" style="background-color: #2C7DC3">
                                     通过审核
                                 </button>
-                                <button @click="titleFail($event,index)" style="background-color: rgba(255,0,0,0.2)">
+                                <button @click="contitleFail($event,index)" style="background-color: #2C7DC3">
                                     无法通过
                                 </button>
                             </td>
@@ -80,6 +80,34 @@
 
     },
     methods: {
+      contitlePass(e,index){
+        this.$confirm('此操作将审核通过该课题, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.titlePass(e,index)
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消操作'
+            });          
+          });
+      },
+       contitleFail(e,index){
+        this.$confirm('此操作将退回该课题, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.titleFail(e,index)
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消操作'
+            });          
+          });
+      },
       getAllTitles: function () {
         axios.post('http://localhost:8010/getalltitles')
           .then((response) => {
@@ -267,6 +295,7 @@
         padding: 0;
         border: none;
         line-height: 26px;
+        color: white;
     }
 
     .page {

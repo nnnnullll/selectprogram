@@ -35,7 +35,7 @@ export default {
         if(res.data.cz!=1){
            axios.post('http://localhost:8010/getlastTitleidByxh?xh='+localStorage.getItem("xh"))
           .then((response)=>{
-            if(response.data==0)
+            if(response.data==2)
               alert("您已完成双向选择")
             else{
               this.$router.push('/'+e)
